@@ -1,0 +1,28 @@
+准备好你的域名
+申请地址：https://freenom.com （若你是申请不了免费的，那么请移步下面）
+
+收费申请地址：https://www.namesilo.com   (随便申请一个年付 0.99/美元的域名，支付宝支付)
+
+解析好你的域名（指向 VPS IP），波仔推荐你使用二级域名（XXX.XXX.XXX）
+
+若不懂二级域名为何物，请移步视频区：点击观看
+
+安装好 curl、wget
+yum -y install wget    ##ContOS Yum安装wget
+apt-get install wget   ##Debian Ubuntu安装 wget
+apt-get update -y && apt-get install curl -y    ##Ubuntu/Debian 系统安装 Curl 方法
+yum update -y && yum install curl -y            ##Centos 系统安装 Curl 方法
+安装/更新方式（h2 和 ws 版本已合并）
+Vmess+websocket+TLS+Nginx+Website
+
+wget -N --no-check-certificate -q -O install.sh "https://raw.githubusercontent.com/wulabing/V2Ray_ws-tls_bash_onekey/master/install.sh" && chmod +x install.sh && bash install.sh
+启动方式
+systemctl start v2ray #启动 V2ray 
+systemctl stop v2ray #停止 V2ray 
+systemctl start nginx #启动 Nginx 
+systemctl stop nginx #停止 Nginx 
+相关目录
+伪装的 Web 目录：/home/wwwroot/3DCEList
+V2ray 服务端配置：/etc/v2ray/config.json
+Nginx 目录： /etc/nginx
+证书文件: /data/v2ray.key 和 /data/v2ray.crt
