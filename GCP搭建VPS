@@ -1,0 +1,33 @@
+1. GCP创建VM实例
+    Computer Engine→VM实例→创建实例
+    除非你是大佬，或者能够自行处理类似 command not found 的问题，否则请你使用 Debian 8+或者 Ubuntu 16+的系统。
+
+2.创建防火墙规则
+    VPC网络→防火墙规则→创建防火墙规则
+
+3. VM实例申请静态IP
+
+4. 打开VM实例SSH页
+
+5. 获取管理员权限
+    命令：sudo -i
+
+6. 安装V2Ray
+    1）一键安装：（233脚本，也可自行搜索其他v2ray一键脚本）
+
+curl -O https://raw.githubusercontent.com/233boy/v2ray/master/install.sh && bash install.sh
+
+要求：Ubuntu 16+ / Debian 8+ / CentOS 7+ 系统
+推荐使用 Debian 9 系统，脚本会自动启用 BBR 优化。
+不推荐使用 Debian 8 系统，因为 Caddy 申请证书可能会出现一些莫名其妙的问题
+
+如果提示 curl: command not found ，那是因为你的 VPS 没装 Curl
+ubuntu/debian 系统安装 Curl 方法: apt-get update -y && apt-get install curl -y
+centos 系统安装 Curl 方法: yum update -y && yum install curl -y
+安装好 curl 之后就能安装脚本了
+
+安装完成后，输入 v2ray 即可管理 V2Ray
+
+7. 配置BBR加速，配置完成后重启机器
+wget --no-check-certificate -O tcp.sh https://github.com/cx9208/Linux-NetSpeed/raw/master/tcp.sh && chmod +x tcp.sh && ./tcp.sh
+安装后，执行lsmod | grep bbr，显示有bbrplus则开启成功
